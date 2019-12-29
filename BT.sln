@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrassVortex.Core", "GrassVortex.Core\GrassVortex.Core.csproj", "{A667139E-564A-4D46-B0F0-59C48D84088D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTest", "MessageTest\MessageTest.csproj", "{217A1F86-287C-49D5-BE17-544179D5BA47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DEF4A95B-A22A-4AB0-9EB9-6460CD81AAD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrassVortex.Unity.Utility", "GrassVortex.Unity.Utility\GrassVortex.Unity.Utility.csproj", "{56FC5E22-BF80-4685-99F1-4ED6B9BE6645}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A667139E-564A-4D46-B0F0-59C48D84088D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A667139E-564A-4D46-B0F0-59C48D84088D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A667139E-564A-4D46-B0F0-59C48D84088D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A667139E-564A-4D46-B0F0-59C48D84088D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217A1F86-287C-49D5-BE17-544179D5BA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217A1F86-287C-49D5-BE17-544179D5BA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217A1F86-287C-49D5-BE17-544179D5BA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217A1F86-287C-49D5-BE17-544179D5BA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FC5E22-BF80-4685-99F1-4ED6B9BE6645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FC5E22-BF80-4685-99F1-4ED6B9BE6645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FC5E22-BF80-4685-99F1-4ED6B9BE6645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FC5E22-BF80-4685-99F1-4ED6B9BE6645}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{217A1F86-287C-49D5-BE17-544179D5BA47} = {DEF4A95B-A22A-4AB0-9EB9-6460CD81AAD9}
+	EndGlobalSection
+EndGlobal
