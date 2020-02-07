@@ -39,8 +39,8 @@ namespace GrassVortex.Messages
 		{
 			foreach (MethodSignature signature in data.GetAllSignatures())
 			{
+				// Find all the methods that match the current signature 
 				Dictionary<Type, List<Method>> matchingSignatures = new Dictionary<Type, List<Method>>();
-
 				foreach (Method method in data.GetAllMethods())
 				{
 					if (method.Signature == signature)
@@ -50,6 +50,7 @@ namespace GrassVortex.Messages
 					}
 				}
 
+				// For the current signature, create a list of all the listener types that can be receiving this kind of message
 				IEnumerable<DistributionTarget> targets = matchingSignatures.Select(ms => new DistributionTarget(ms.Key, ms.Value));
 				DistributionList distributionList = new DistributionList(signature, targets);
 				distributionLists.Add(distributionList.Signature, distributionList);
