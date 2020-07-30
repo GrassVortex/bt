@@ -13,11 +13,17 @@ namespace GrassVortex.Messages
 		private readonly Dictionary<MethodSignature, DistributionList> distributionLists;
 		private readonly Dictionary<Type, List<IListener>> activeListeners;
 
-		private readonly List<Message> messages;
+		private Queue<Message> messageQueue;
+		private int messageQueueIndex;
+		private readonly Queue<Message>[] messageQueuePool;
 
 		private ExactDispatcher(DispatcherData data)
 		{
-			messages = new List<Message>();
+			messageQueuePool = new Queue<Message>[2];
+			messageQueuePool[0] = new Queue<Message>();
+			messageQueuePool[1] = new Queue<Message>();
+			messageQueueIndex = 0;
+			SwapMessageQueues();
 
 			distributionLists = new Dictionary<MethodSignature, DistributionList>();
 			activeListeners = new Dictionary<Type, List<IListener>>();
@@ -60,6 +66,7 @@ namespace GrassVortex.Messages
 
 		public void AddListener(IListener listener)
 		{
+			Type listenerType = listener.GetType();
 
 		}
 
@@ -77,12 +84,33 @@ namespace GrassVortex.Messages
 
 		private void Send(MethodSignature receiverSignature, IMessagePayload payload)
 		{
-			messages.Add(new Message(receiverSignature, payload));
+			messageQueue.Enqueue(new Message(receiverSignature, payload));
 		}
 
 		public void DispatchMessages()
 		{
-			throw new NotImplementedException();
+			// Save the current queue and swap to the next one so that new messages can be enqueued as a result of a dispatch
+			var messagesToDispatch = messageQueue;
+			SwapMessageQueues();
+
+			try
+			{
+
+			}
+			finally
+			{
+				messagesToDispatch.Clear();
+			}
+		}
+
+		private void SwapMessageQueues()
+		{
+			++messageQueueIndex;
+			if (messageQueueIndex >= messageQueuePool.Length)
+			{
+				messageQueueIndex = 0;
+			}
+			messageQueue = messageQueuePool[messageQueueIndex];
 		}
 
 		private struct Message
